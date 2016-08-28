@@ -1,0 +1,100 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+	<title>显示时间</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	div{width: 200px;height: 200px;background-color: #D4BEBE}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		showTime();
+		};
+
+		function check(i){
+				if (i<10) {
+					return '0'+i;
+				} else {
+					return i;
+				}
+			}
+
+		function showTime(){
+			var myDate=new Date();
+			var year=myDate.getFullYear();
+			var month=myDate.getMonth()+1;
+			var date=myDate.getDate();//日
+			var w=myDate.getDay();//星期
+			var h=myDate.getHours();
+			var m=myDate.getMinutes();
+			var s=myDate.getSeconds();
+			var week=new Array(7);
+			m=check(m);
+			h=check(h);
+			s=check(s);
+			week[0]="星期日";
+			week[1]="星期一";
+			week[2]="星期二";
+			week[3]="星期三";
+			week[4]="星期四";
+			week[5]="星期五";
+			week[6]="星期六";
+			document.getElementById('show').innerHTML=year+'年'+month+'月'+date+'日'+week[w]+h+':'+m+':'+s;
+			setTimeout(showTime,500);
+
+			
+	    }
+	</script>
+</head>
+<body>
+<div id="show">显示时间的位置</div>
+</body>
+</html>-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>显示当前时间</title>
+<style type="text/css">
+div{width:200px;height:200px;background-color:#00FF99;}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+showTime();
+}
+function showTime(){
+
+	function check(i){
+			if(i<10){
+			 return '0'+i;
+			}else{
+				return i;
+			}
+	}
+	
+	var mydate=new Date();
+	var year=mydate.getFullYear();//年
+	var mon=mydate.getMonth()+1;//月
+	var day=mydate.getDate();//日
+	var week=mydate.getDay();//星期
+	var weekday=new Array(7);
+	weekday=['星期天','星期一','星期二','星期三','星期四','星期五','星期六']
+	var hour=mydate.getHours();//时
+	var mins=mydate.getMinutes();//分
+	var seconds=mydate.getSeconds();//秒
+	hour=check(hour);
+	mins=check(mins);
+	seconds=check(seconds);
+	var time=year+'年'+mon+'月'+day+'日'+weekday[week]+hour+'时'+mins+'分'+seconds+'秒';
+	document.getElementById('clock').innerHTML=time;
+	setInterval(showTime,1000);
+	
+}
+</script>
+</head>
+
+<body>
+<div id='clock'></div>
+</body>
+</html>
